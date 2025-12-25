@@ -11,27 +11,32 @@
         body {
             font-family: 'Pretendard', sans-serif;
             background-color: #f8fafc;
+            margin: 0;
+            padding: 0;
         }
     </style>
+    <!-- process.env 참조 에러 방지를 위한 최상단 심(Shim) -->
     <script>
-        // Vite/Vercel 환경에서 process.env 참조 에러 방지를 위한 폴리필
         window.process = window.process || { env: {} };
     </script>
     <script type="importmap">
-    {
-      "imports": {
-        "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-        "react/": "https://esm.sh/react@^19.2.3/",
-        "react": "https://esm.sh/react@^19.2.3",
-        "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
-        "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
-      }
-    }
-    </script>
+{
+  "imports": {
+    "react": "https://esm.sh/react@19.0.0",
+    "react-dom": "https://esm.sh/react-dom@19.0.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "@google/genai": "https://esm.sh/@google/genai@1.34.0",
+    "lucide-react": "https://esm.sh/lucide-react@0.474.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "vite": "https://esm.sh/vite@^7.3.0"
+  }
+}
+</script>
 </head>
 <body>
     <div id="root"></div>
-    <!-- Vite 진입점 설정 -->
-    <script type="module" src="/index.tsx"></script>
+    <!-- 상대 경로를 사용하여 Vite 진입점 설정 -->
+    <script type="module" src="./index.tsx"></script>
 </body>
 </html>

@@ -15,7 +15,7 @@
             padding: 0;
         }
     </style>
-    <!-- process.env 참조 에러 방지를 위한 최상단 심(Shim) -->
+    <!-- 런타임 process 참조 에러 방지 -->
     <script>
         window.process = window.process || { env: {} };
     </script>
@@ -36,7 +36,6 @@
 </head>
 <body>
     <div id="root"></div>
-    <!-- 상대 경로를 사용하여 Vite 진입점 설정 -->
     <script type="module" src="./index.tsx"></script>
 </body>
 </html>

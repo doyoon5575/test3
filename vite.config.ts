@@ -3,8 +3,10 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   define: {
-    // 빌드 타임에 process.env가 정의되지 않아 발생하는 에러 방지
-    'process.env': '({})'
+    // process.env.API_KEY를 직접 정의하여 빌드 타임에 주입
+    // JSON.stringify를 통해 유효한 자바스크립트 문자열 리터럴로 변환
+    'process.env.API_KEY': JSON.stringify(process.env.API_KEY),
+    'process.env': '{}'
   },
   build: {
     outDir: 'dist',
